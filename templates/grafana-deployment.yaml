@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.grafanaApplicationName }}
+  namespace: {{ .Values.namespace }} 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.grafanaApplicationName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.grafanaApplicationName }}
+    spec:
+      containers:
+        - name: {{ .Values.grafanaApplicationName }}
+          image:  "{{ .Values.grafanaimage.name }}:{{ .Values.grafanaimage.tag }}"
+          resources:
+            request:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 3000
