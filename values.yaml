@@ -1,0 +1,17 @@
+
+
+grafanaApplicationName: grafana-app
+
+namespace: tooling
+
+grafanaimage:
+  name: 416591745024.dkr.ecr.eu-west-2.amazonaws.com/global-tooling/grafana-app
+  tag: "latest"
+
+grafanaservice: grafana-app-service
+
+serviceingress:  grafana-ingress-service
+
+grafanaappbaseURL : grafana.globalfrontierlink.co.uk
+
+
